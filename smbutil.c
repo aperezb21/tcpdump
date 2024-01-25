@@ -479,7 +479,7 @@ smb_fdata1(netdissect_options *ndo,
 	    buf++;
 	    fmt++;
 	    break;
-
+        
 	case 'A':
 	    write_bits(ndo, GET_LE_U_2(buf), attrib_fmt);
 	    buf += 2;

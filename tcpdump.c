@@ -245,6 +245,7 @@ static void print_version(FILE *);
 static void print_usage(FILE *);
 
 static void print_packet(u_char *, const struct pcap_pkthdr *, const u_char *);
+static void defined_function(u_char *, const struct pcap_pkthdr *, const u_char *);
 static void dump_packet_and_trunc(u_char *, const struct pcap_pkthdr *, const u_char *);
 static void dump_packet(u_char *, const struct pcap_pkthdr *, const u_char *);
 
@@ -701,6 +702,7 @@ show_remote_devices_and_exit(void)
 #define OPTION_COUNT			136
 #define OPTION_PRINT_SAMPLING		137
 #define OPTION_LENGTHS			138
+#define OPTION_CALL				139
 
 static const struct option longopts[] = {
 #if defined(HAVE_PCAP_CREATE) || defined(_WIN32)
@@ -751,6 +753,7 @@ static const struct option longopts[] = {
 	{ "print-sampling", required_argument, NULL, OPTION_PRINT_SAMPLING },
 	{ "lengths", no_argument, NULL, OPTION_LENGTHS },
 	{ "version", no_argument, NULL, OPTION_VERSION },
+	{ "call", no_argument, NULL, OPTION_CALL },
 	{ NULL, 0, NULL, 0 }
 };
 
@@ -1573,6 +1576,7 @@ main(int argc, char **argv)
 	    (op = getopt_long(argc, argv, SHORTOPTS, longopts, NULL)) != -1)
 		switch (op) {
 
+
 		case 'a':
 			/* compatibility for old -a */
 			break;
@@ -1981,6 +1985,12 @@ main(int argc, char **argv)
 			print_version(stdout);
 			exit_tcpdump(S_SUCCESS);
 			/* NOTREACHED */
+
+
+		case OPTION_CALL:
+			ndo->ndo_call = 1;
+			break;
+
 
 #ifdef HAVE_PCAP_SET_TSTAMP_PRECISION
 		case OPTION_TSTAMP_PRECISION:
@@ -2581,7 +2591,10 @@ DIAG_ON_ASSIGN_ENUM
 	} else {
 		dlt = pcap_datalink(pd);
 		ndo->ndo_if_printer = get_if_printer(dlt);
-		callback = print_packet;
+		if(ndo->ndo_call)
+			callback = defined_function;
+		else
+			callback = print_packet;
 		pcap_userdata = (u_char *)ndo;
 	}
 
@@ -3215,6 +3228,27 @@ print_packet(u_char *user, const struct pcap_pkthdr *h, const u_char *sp)
 	if (infoprint)
 		info(0);
 }
+
+
+static void
+defined_function(u_char *user, const struct pcap_pkthdr *h, const u_char *sp)
+{
+	++packets_captured;
+
+	++infodelay;
+
+	printf("###Packet Received###\n");
+    int i;
+    for (i = 0; i < 10; i++) {
+        printf("%02x ", sp[i]);
+    }
+	printf("\n#####################\n");
+
+	--infodelay;
+	if (infoprint)
+		info(0);
+}
+
 
 #ifdef SIGNAL_REQ_INFO
 static void
