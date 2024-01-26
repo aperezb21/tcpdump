@@ -246,6 +246,7 @@ static void print_usage(FILE *);
 
 static void print_packet(u_char *, const struct pcap_pkthdr *, const u_char *);
 static void defined_function(u_char *, const struct pcap_pkthdr *, const u_char *);
+pcap_handler real_callback;
 static void dump_packet_and_trunc(u_char *, const struct pcap_pkthdr *, const u_char *);
 static void dump_packet(u_char *, const struct pcap_pkthdr *, const u_char *);
 
@@ -2591,11 +2592,14 @@ DIAG_ON_ASSIGN_ENUM
 	} else {
 		dlt = pcap_datalink(pd);
 		ndo->ndo_if_printer = get_if_printer(dlt);
-		if(ndo->ndo_call)
-			callback = defined_function;
-		else
-			callback = print_packet;
+		callback = print_packet;
 		pcap_userdata = (u_char *)ndo;
+	}
+
+	//Callback is defined from this point. We check if a process function is active (--call flag).
+	if(ndo->ndo_call){
+			real_callback = callback;
+			callback = defined_function;	
 	}
 
 #ifdef SIGNAL_REQ_INFO
@@ -3236,7 +3240,7 @@ defined_function(u_char *user, const struct pcap_pkthdr *h, const u_char *sp)
 	++packets_captured;
 
 	++infodelay;
-
+	//Dummy action
 	printf("###Packet Received###\n");
     int i;
     for (i = 0; i < 10; i++) {
@@ -3247,6 +3251,9 @@ defined_function(u_char *user, const struct pcap_pkthdr *h, const u_char *sp)
 	--infodelay;
 	if (infoprint)
 		info(0);
+
+	//Call the real callback after the process function
+	real_callback(user, h, sp);
 }
 
 
