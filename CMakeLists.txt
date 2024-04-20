@@ -872,10 +872,10 @@ if(WITH_CRYPTOPANT)
     find_package(CRYPTOPANT)
     if(CRYPTOPANT_FOUND)
         include_directories(SYSTEM ${CRYPTOPANT_INCLUDE_DIRS})
-        set(TCPDUMP_LINK_LIBRARIES ${TCPDUMP_LINK_LIBRARIES} ${CRYPTOPAN_LIBRARIES})
+        set(TCPDUMP_LINK_LIBRARIES ${TCPDUMP_LINK_LIBRARIES} ${CRYPTOPANT_LIBRARIES})
         set(HAVE_LIBCRYPTOPANT ON)
-    endif(CRYPTOPAN_FOUND)
-endif(WITH_CRYPTOPAN)
+    endif(CRYPTOPANT_FOUND)
+endif(WITH_CRYPTOPANT)
 
 #
 # Capsicum sandboxing.
@@ -1078,11 +1078,15 @@ if(ENABLE_SMB)
         smbutil.c)
 endif(ENABLE_SMB)
 
+if(ENABLE_ANON)
+    set(LOCALSRC ${LOCALSRC}
+        anon.c)
+endif(ENABLE_ANON)
+
 set(NETDISSECT_SOURCE_LIST_C
     addrtoname.c
     addrtostr.c
     af.c
-    anon.c
     ascii_strcasecmp.c
     checksum.c
     cpack.c

@@ -213,7 +213,7 @@
 /* Define if you enable support for libsmi */
 #cmakedefine USE_LIBSMI 1
 
-/* Define if you enable support for libcryptopANT */
+/* Define to 1 if you have the `cryptopANT' library (-lcryptopant). */
 #cmakedefine HAVE_LIBCRYPTOPANT 1
 
 /* define if should chroot when dropping privileges */
