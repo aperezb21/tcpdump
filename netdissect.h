@@ -239,7 +239,7 @@ struct netdissect_options {
   int ndo_print_sampling;	/* print every Nth packet */
   int ndo_suppress_default_print; /* don't use default_print() for unknown packet types */
   int ndo_tstamp_precision;	/* requested time stamp precision */
-  int ndo_call; /* calls to external function*/
+  int ndo_anon; /* calls to anon function*/
   const char *program_name;	/* Name of the program using the library */
 
   char *ndo_espsecret;
