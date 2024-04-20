@@ -67,6 +67,11 @@ The Regents of the University of California.  All rights reserved.\n";
 #include <openssl/crypto.h>
 #endif
 
+#ifdef HAVE_LIBCRYPTOPANT
+#include <cryptopANT.h>
+#include "anon.h"
+#endif
+
 #ifdef HAVE_GETOPT_LONG
 #include <getopt.h>
 #else
@@ -245,10 +250,16 @@ static void print_version(FILE *);
 static void print_usage(FILE *);
 
 static void print_packet(u_char *, const struct pcap_pkthdr *, const u_char *);
-static void defined_function(u_char *, const struct pcap_pkthdr *, const u_char *);
-pcap_handler real_callback;
 static void dump_packet_and_trunc(u_char *, const struct pcap_pkthdr *, const u_char *);
 static void dump_packet(u_char *, const struct pcap_pkthdr *, const u_char *);
+
+#ifdef HAVE_LIBCRYPTOPANT
+//Real_callback must be a global variable
+pcap_handler real_callback;
+static void anon_function(u_char *, const struct pcap_pkthdr *, const u_char *);
+void anon_packet(u_char *user, const struct pcap_pkthdr *h, u_char *sp, pcap_t *pd);
+const char *keyfile = "/home/vboxuser/Desktop/project/newkeyfile-aes.cryptopant";
+#endif
 
 #ifdef SIGNAL_REQ_INFO
 static void requestinfo(int);
@@ -703,7 +714,10 @@ show_remote_devices_and_exit(void)
 #define OPTION_COUNT			136
 #define OPTION_PRINT_SAMPLING		137
 #define OPTION_LENGTHS			138
-#define OPTION_CALL				139
+
+#ifdef HAVE_LIBCRYPTOPANT
+#define OPTION_ANON				139
+#endif
 
 static const struct option longopts[] = {
 #if defined(HAVE_PCAP_CREATE) || defined(_WIN32)
@@ -754,7 +768,9 @@ static const struct option longopts[] = {
 	{ "print-sampling", required_argument, NULL, OPTION_PRINT_SAMPLING },
 	{ "lengths", no_argument, NULL, OPTION_LENGTHS },
 	{ "version", no_argument, NULL, OPTION_VERSION },
-	{ "call", no_argument, NULL, OPTION_CALL },
+#ifdef HAVE_LIBCRYPTOPANT
+	{ "anon", required_argument, NULL, OPTION_ANON },
+#endif
 	{ NULL, 0, NULL, 0 }
 };
 
@@ -1988,9 +2004,17 @@ main(int argc, char **argv)
 			/* NOTREACHED */
 
 
-		case OPTION_CALL:
-			ndo->ndo_call = 1;
+#ifdef HAVE_LIBCRYPTOPANT
+		case OPTION_ANON:
+			//Initialize library from a keyfile and set up for anonymization of IPv4 
+			if(optarg){
+				keyfile = optarg;
+			}
+			//If the file does not exist, scrabmle_init_from_file creates one
+			scramble_init_from_file(keyfile, SCRAMBLE_AES , SCRAMBLE_AES , NULL);
+			ndo->ndo_anon = 1;
 			break;
+#endif
 
 
 #ifdef HAVE_PCAP_SET_TSTAMP_PRECISION
@@ -2596,11 +2620,14 @@ DIAG_ON_ASSIGN_ENUM
 		pcap_userdata = (u_char *)ndo;
 	}
 
-	//Callback is defined from this point. We check if a process function is active (--call flag).
-	if(ndo->ndo_call){
-			real_callback = callback;
-			callback = defined_function;	
+#ifdef HAVE_LIBCRYPTOPANT
+	//Callback is defined at this point. We check if a anonymization function is active (--anon flag).
+	if(ndo->ndo_anon){
+		real_callback = callback;
+		callback = anon_function;
+				
 	}
+#endif
 
 #ifdef SIGNAL_REQ_INFO
 	/*
@@ -3234,28 +3261,28 @@ print_packet(u_char *user, const struct pcap_pkthdr *h, const u_char *sp)
 }
 
 
+#ifdef HAVE_LIBCRYPTOPANT
 static void
-defined_function(u_char *user, const struct pcap_pkthdr *h, const u_char *sp)
+anon_function(u_char *user, const struct pcap_pkthdr *h, const u_char *sp)
 {
 	++packets_captured;
-
 	++infodelay;
-	//Dummy action
-	printf("###Packet Received###\n");
-    int i;
-    for (i = 0; i < 10; i++) {
-        printf("%02x ", sp[i]);
-    }
-	printf("\n#####################\n");
+ 
+	//Copy of the packet captured
+	u_char *sp_anon = (u_char *)malloc(h->caplen); 
+	memcpy(sp_anon, sp ,h->caplen);
+		 
+	//Anonymizing the IP addresses
+	anon_packet(user, h, sp_anon,pd);
+	
+	sp = sp_anon;
+	real_callback(user,h,sp);
 
 	--infodelay;
 	if (infoprint)
 		info(0);
-
-	//Call the real callback after the process function
-	real_callback(user, h, sp);
 }
-
+#endif
 
 #ifdef SIGNAL_REQ_INFO
 static void
