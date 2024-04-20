@@ -861,8 +861,8 @@ if test "$want_libcrypto" != "no"; then
 fi
 
 
-#Check for libcryptopANT library
-AC_MSG_CHECKING(whether to use cryptopant)
+# Check for libcryptopANT
+AC_MSG_CHECKING(whether to use libcryptopANT)
 # Specify location for both includes and libraries.
 want_libcryptopant=no
 AC_ARG_WITH(cryptopant,
@@ -896,28 +896,27 @@ AC_ARG_WITH(cryptopant,
 	fi
 ],[
 	#
-    # Do not use libcryptopANT
+	# Do not use libcryptopANT
 	#
 	want_libcryptopant=no
 	AC_MSG_RESULT([no])
 ])
 if test "$want_libcryptopant" != "no"; then
-	#
-	# cryptolib is used by cryptopANT
-	#
-	if test $CRYPTO = no; then
+	if test "$CRYPTO" = "no"; then
 		AC_MSG_NOTICE([cryptolib needs to be linked to use libcryptopant])
 	else
 		#
 		# Use libcrypto if it's present, otherwise don't
 		#
-		AC_CHECK_HEADER(/usr/local/include/cryptopANT.h,
+		AC_CHECK_HEADER(cryptopANT.h,
 		[
-			AC_CHECK_LIB(cryptopANT, scramble_ip4, [
-				LOCALSRC="$LOCALSRC anon.c"
-			])
-		],[
-			AC_MSG_NOTICE([Header cryptopANT.h not found])
+			AC_CHECK_LIB(cryptopANT, scramble_init_from_file)
+			if test "$ac_cv_lib_cryptopANT_scramble_init_from_file" = "yes"; then
+					AC_DEFINE(ENABLE_ANON, 1, [cryptopANT library])
+					LOCALSRC="$LOCALSRC anon.c"
+			else
+					AC_MSG_NOTICE([Header cryptopANT.h not found])
+			fi
 		])
 	fi
 fi
