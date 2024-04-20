@@ -268,6 +268,7 @@ HDR = \
 	af.h \
 	ah.h \
 	appletalk.h \
+	anon.h \
 	ascii_strcasecmp.h \
 	atm.h \
 	chdlc.h \
@@ -325,7 +326,7 @@ TAGFILES = $(SRC) $(HDR) $(TAGHDR) $(LIBNETDISSECT_SRC) \
 	print-smb.c smbutil.c
 
 CLEANFILES = $(PROG) $(OBJ) $(LIBNETDISSECT_OBJ) \
-	print-smb.o smbutil.o instrument-functions.o
+	print-smb.o smbutil.o instrument-functions.o anon.o
 
 EXTRA_DIST = \
 	CHANGES \
@@ -343,6 +344,7 @@ EXTRA_DIST = \
 	atime.awk \
 	bpf_dump.c \
 	cmake/Modules/FindCRYPTO.cmake \
+	cmake/Modules/FindCRYPTOPANT.cmake \
 	cmake/Modules/FindPCAP.cmake \
 	cmake/Modules/FindSMI.cmake \
 	cmake_uninstall.cmake.in \

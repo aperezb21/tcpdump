@@ -213,6 +213,9 @@
 /* Define if you enable support for libsmi */
 #cmakedefine USE_LIBSMI 1
 
+/* Define if you enable support for libcryptopANT */
+#cmakedefine HAVE_LIBCRYPTOPANT 1
+
 /* define if should chroot when dropping privileges */
 #cmakedefine WITH_CHROOT "@WITH_CHROOT@"
 

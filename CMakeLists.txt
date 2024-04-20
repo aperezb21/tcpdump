@@ -222,6 +222,7 @@ set(LIBRARY_NAME netdissect)
 
 option(WITH_SMI "Build with libsmi, if available" ON)
 option(WITH_CRYPTO "Build with OpenSSL/libressl libcrypto, if available" ON)
+option(WITH_CRYPTOPANT "Build with libcryptopANT, if available" ON)
 option(WITH_CAPSICUM "Build with Capsicum security functions, if available" ON)
 option(WITH_CAP_NG "Use libcap-ng, if available" ON)
 option(ENABLE_SMB "Build with the SMB dissector" OFF)
@@ -817,6 +818,8 @@ if(WITH_SMI)
     endif(SMI_FOUND)
 endif(WITH_SMI)
 
+
+
 #
 # OpenSSL/libressl libcrypto.
 #
@@ -861,6 +864,18 @@ if(WITH_CRYPTO)
         set(HAVE_LIBCRYPTO ON)
     endif(CRYPTO_FOUND)
 endif(WITH_CRYPTO)
+
+#
+# libcryptopANT
+#
+if(WITH_CRYPTOPANT)
+    find_package(CRYPTOPANT)
+    if(CRYPTOPANT_FOUND)
+        include_directories(SYSTEM ${CRYPTOPANT_INCLUDE_DIRS})
+        set(TCPDUMP_LINK_LIBRARIES ${TCPDUMP_LINK_LIBRARIES} ${CRYPTOPAN_LIBRARIES})
+        set(HAVE_LIBCRYPTOPANT ON)
+    endif(CRYPTOPAN_FOUND)
+endif(WITH_CRYPTOPAN)
 
 #
 # Capsicum sandboxing.
@@ -1067,6 +1082,7 @@ set(NETDISSECT_SOURCE_LIST_C
     addrtoname.c
     addrtostr.c
     af.c
+    anon.c
     ascii_strcasecmp.c
     checksum.c
     cpack.c

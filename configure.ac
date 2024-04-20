@@ -779,6 +779,7 @@ AC_LBL_DEVEL(V_CCOPT)
 AC_MSG_CHECKING(whether to use OpenSSL/libressl libcrypto)
 # Specify location for both includes and libraries.
 want_libcrypto=ifavailable
+CRYPTO=no
 AC_ARG_WITH(crypto,
     AS_HELP_STRING([--with-crypto]@<:@=DIR@:>@,
 		   [use OpenSSL/libressl libcrypto (located in directory DIR, if specified) @<:@default=yes, if available@:>@]),
@@ -852,8 +853,73 @@ if test "$want_libcrypto" != "no"; then
 			# unusable and causing a crash.
 			#
 			AC_CHECK_FUNCS(EVP_CIPHER_CTX_new EVP_DecryptInit_ex)
+			if test "$ac_cv_func_EVP_CIPHER_CTX_new" = "yes" && test "$ac_cv_func_EVP_DecryptInit_ex" = "yes"; then
+				CRYPTO="yes"
+			fi
 		fi
 	])
+fi
+
+
+#Check for libcryptopANT library
+AC_MSG_CHECKING(whether to use cryptopant)
+# Specify location for both includes and libraries.
+want_libcryptopant=no
+AC_ARG_WITH(cryptopant,
+    AS_HELP_STRING([--with-cryptopant]@<:@=DIR@:>@,
+		   [use libcryptopANT (located in directory DIR, if specified) @<:@default=no@:>@]),
+[
+	if test $withval = yes
+	then
+		# User wants to link with libcryptopANT but hasn't specified
+		# a directory.
+		want_libcryptopant=yes
+		AC_MSG_RESULT(yes)
+	elif test $withval = no
+	then
+		# User doesn't want to link with libcryptopANT.
+		want_libcryptopant=no
+		AC_MSG_RESULT(no)
+	else
+		# User wants to link with libcryptopANT and has specified
+		# a directory, so use the provided value.
+		want_libcryptopant=yes
+		libcryptopant_root=$withval
+		AC_MSG_RESULT([yes, using the version installed in $withval])
+
+		#
+		# Put the subdirectories of the libcryptopANT root directory
+		# at the front of the header and library search path.
+		#
+		CFLAGS="-I$withval/include $CFLAGS"
+		LIBS="-L$withval/lib $LIBS"
+	fi
+],[
+	#
+    # Do not use libcryptopANT
+	#
+	want_libcryptopant=no
+	AC_MSG_RESULT([no])
+])
+if test "$want_libcryptopant" != "no"; then
+	#
+	# cryptolib is used by cryptopANT
+	#
+	if test $CRYPTO = no; then
+		AC_MSG_NOTICE([cryptolib needs to be linked to use libcryptopant])
+	else
+		#
+		# Use libcrypto if it's present, otherwise don't
+		#
+		AC_CHECK_HEADER(/usr/local/include/cryptopANT.h,
+		[
+			AC_CHECK_LIB(cryptopANT, scramble_ip4, [
+				LOCALSRC="$LOCALSRC anon.c"
+			])
+		],[
+			AC_MSG_NOTICE([Header cryptopANT.h not found])
+		])
+	fi
 fi
 
 # Check for libcap-ng
