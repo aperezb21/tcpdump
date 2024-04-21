@@ -4,7 +4,7 @@
 # 
 
 # Try to find the header
-find_path(CRYPTOPANT_INCLUDE_DIR /usr/local/include/cryptopANT.h)
+find_path(CRYPTOPANT_INCLUDE_DIR cryptopANT.h)
 
 if(CRYPTOPANT_INCLUDE_DIR)
     message(STATUS "Found cryptoPANT header: ${CRYPTOPANT_INCLUDE_DIR}")
