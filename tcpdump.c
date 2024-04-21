@@ -257,7 +257,7 @@ static void dump_packet(u_char *, const struct pcap_pkthdr *, const u_char *);
 //Real_callback must be a global variable
 pcap_handler real_callback;
 static void anon_function(u_char *, const struct pcap_pkthdr *, const u_char *);
-void anon_packet(u_char *user, const struct pcap_pkthdr *h, u_char *sp, pcap_t *pd);
+void anon_packet(netdissect_options *, const struct pcap_pkthdr *, u_char *, pcap_t *);
 const char *keyfile = "/home/vboxuser/Desktop/project/newkeyfile-aes.cryptopant";
 #endif
 
@@ -3273,7 +3273,7 @@ anon_function(u_char *user, const struct pcap_pkthdr *h, const u_char *sp)
 	memcpy(sp_anon, sp ,h->caplen);
 		 
 	//Anonymizing the IP addresses
-	anon_packet(user, h, sp_anon,pd);
+	anon_packet((netdissect_options *)user, h, sp_anon,pd);
 	
 	sp = sp_anon;
 	real_callback(user,h,sp);
