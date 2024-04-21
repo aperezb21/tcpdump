@@ -1,0 +1,16 @@
+# -*- perl -*-
+
+# Only attempt cryptopANT tests when compiled with the library.
+
+$testlist = [
+    {
+        config_set => 'HAVE_LIBCRYPTOPANT',
+        name => 'cryptopANT_ipv4',
+        input => 'cryptopANT_ipv4.pcap',
+        output => 'cryptopANT_ipv4.out',
+        args   => '--anon tests/newkeyfile-aes.cryptopant -v'
+    }
+
+];
+
+1;
