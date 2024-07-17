@@ -1,4 +1,3 @@
-```
 # Installation Notes for tcpdump with cryptopANT
 
 ## Required Tools
@@ -45,6 +44,8 @@ sudo apt-get install git libpcap-dev
 
 2. **Prepare for Compilation:**
 
+   Default ./configure does not allow anon usage, so you need to provide `--with-cryptopant=yes`
+
    ```bash
    ./autogen.sh
    ./configure --with-cryptopant=yes
@@ -88,4 +89,3 @@ Once compiled, you can use tcpdump with anonymization options:
   ```
 
 Feel free to reach out if you have any questions or run into issues!
-```
