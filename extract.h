@@ -23,6 +23,7 @@
 #define EXTRACT_H
 
 #include <string.h>
+#include <netinet/in.h>
 
 /*
  * For 8-bit values; needed to fetch a one-byte value.  Byte order
@@ -379,6 +380,15 @@ EXTRACT_IPV4_TO_NETWORK_ORDER(const void *p)
 	uint32_t addr;
 
 	UNALIGNED_MEMCPY(&addr, p, sizeof(uint32_t));
+	return addr;
+}
+
+static inline struct in6_addr
+EXTRACT_IPV6_TO_NETWORK_ORDER(const void *p)
+{
+	struct in6_addr addr;
+
+	UNALIGNED_MEMCPY(&addr, p, sizeof(struct in6_addr));
 	return addr;
 }
 

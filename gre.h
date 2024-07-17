@@ -34,3 +34,18 @@
 #define	GRE_SP		0x1000		/* sequence# present */
 #define	GRE_sP		0x0800		/* source routing */
 #define	GRE_AP		0x0080		/* acknowledgment# present */
+
+
+
+#define	GRE_RECRS_MASK	0x0700		/* recursion count */
+#define	GRE_VERS_MASK	0x0007		/* protocol version */
+
+/*
+ * Ethertype values used for GRE (but not elsewhere?).
+ */
+#define GRE_CDP			0x2000	/* Cisco Discovery Protocol */
+#define GRE_NHRP		0x2001	/* Next Hop Resolution Protocol */
+#define GRE_MIKROTIK_EOIP	0x6400	/* MikroTik RouterBoard Ethernet over IP (EoIP) */
+#define GRE_ERSPAN_III		0x22eb
+#define GRE_WCCP		0x883e	/* Web Cache C* Protocol */
+#define GRE_ERSPAN_I_II		0x88be

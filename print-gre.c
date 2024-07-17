@@ -65,22 +65,12 @@ static const struct tok gre_flag_values[] = {
     { 0, NULL }
 };
 
-#define	GRE_RECRS_MASK	0x0700		/* recursion count */
-#define	GRE_VERS_MASK	0x0007		/* protocol version */
+
 
 /* source route entry types */
 #define	GRESRE_IP	0x0800		/* IP */
 #define	GRESRE_ASN	0xfffe		/* ASN */
 
-/*
- * Ethertype values used for GRE (but not elsewhere?).
- */
-#define GRE_CDP			0x2000	/* Cisco Discovery Protocol */
-#define GRE_NHRP		0x2001	/* Next Hop Resolution Protocol */
-#define GRE_MIKROTIK_EOIP	0x6400	/* MikroTik RouterBoard Ethernet over IP (EoIP) */
-#define GRE_ERSPAN_III		0x22eb
-#define GRE_WCCP		0x883e	/* Web Cache C* Protocol */
-#define GRE_ERSPAN_I_II		0x88be
 
 struct wccp_redirect {
 	nd_uint8_t	flags;
