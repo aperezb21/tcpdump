@@ -8,7 +8,237 @@ $testlist = [
         name => 'cryptopANT_ipv4',
         input => 'cryptopANT_ipv4.pcap',
         output => 'cryptopANT_ipv4.out',
-        args   => '--anon tests/newkeyfile-aes.cryptopant -v'
+        args   => '--anon tests/newkeyfile-aes.cryptopant -# -n -v '
+    },
+    
+    {
+        config_set => 'HAVE_LIBCRYPTOPANT',
+        name => 'cryptopANT_ipv6',
+        input => 'cryptopANT_ipv6.pcap',
+        output => 'cryptopANT_ipv6.out',
+        args   => '--anon tests/newkeyfile-aes.cryptopant -v -n'
+    },
+    {
+        config_set => 'HAVE_LIBCRYPTOPANT',
+        name => 'cryptopANT_arp',
+        input => 'cryptopANT_arp.pcap',
+        output => 'cryptopANT_arp.out',
+        args   => '--anon tests/newkeyfile-aes.cryptopant -v -n'
+    },
+
+    {
+        config_set => 'HAVE_LIBCRYPTOPANT',
+        name => 'cryptopANT_vlan',
+        input => 'cryptopANT_vlan.pcap',
+        output => 'cryptopANT_vlan.out',
+        args   => '--anon tests/newkeyfile-aes.cryptopant -v -n'
+    },
+
+    {
+        config_set => 'HAVE_LIBCRYPTOPANT',
+        name => 'cryptopANT_dns',
+        input => 'cryptopANT_dns.pcap',
+        output => 'cryptopANT_dns.out',
+        args   => '--anon tests/newkeyfile-aes.cryptopant -v -n'
+    },
+    
+    {
+        config_set => 'HAVE_LIBCRYPTOPANT',
+        name => 'cryptopANT_dhcp',
+        input => 'cryptopANT_dhcp.pcap',
+        output => 'cryptopANT_dhcp.out',
+        args   => '--anon tests/newkeyfile-aes.cryptopant -v -n'
+    },
+
+    {
+        config_set => 'HAVE_LIBCRYPTOPANT',
+        name => 'cryptopANT_ndp',
+        input => 'cryptopANT_ndp.pcap',
+        output => 'cryptopANT_ndp.out',
+        args   => '--anon tests/newkeyfile-aes.cryptopant -v -n'
+    },
+    
+    {
+        config_set => 'HAVE_LIBCRYPTOPANT',
+        name => 'cryptopANT_mld',
+        input => 'cryptopANT_mld.pcap',
+        output => 'cryptopANT_mld.out',
+        args   => '--anon tests/newkeyfile-aes.cryptopant -v -n'
+    },
+    
+    {
+        config_set => 'HAVE_LIBCRYPTOPANT',
+        name => 'cryptopANT_gre',
+        input => 'cryptopANT_gre.pcap',
+        output => 'cryptopANT_gre.out',
+        args   => '--anon tests/newkeyfile-aes.cryptopant -v -n'
+    },
+    
+    {
+        config_set => 'HAVE_LIBCRYPTOPANT',
+        name => 'cryptopANT_nhrp',
+        input => 'cryptopANT_nhrp.pcap',
+        output => 'cryptopANT_nhrp.out',
+        args   => '--anon tests/newkeyfile-aes.cryptopant -v -n'
+    },
+
+    {
+        config_set => 'HAVE_LIBCRYPTOPANT',
+        name => 'cryptopANT_ipinip',
+        input => 'cryptopANT_ipinip.pcap',
+        output => 'cryptopANT_ipinip.out',
+        args   => '--anon tests/newkeyfile-aes.cryptopant -v -n'
+    },
+    
+    {
+        config_set => 'HAVE_LIBCRYPTOPANT',
+        name => 'cryptopANT_danon_ipv4',
+        input => 'cryptopANT_anon_ipv4.pcap',
+        output => 'cryptopANT_danon_ipv4.out',
+        args   => '--danon tests/newkeyfile-aes.cryptopant -# -n -v '
+    },
+
+    {
+        config_set => 'HAVE_LIBCRYPTOPANT',
+        name => 'cryptopANT_danon_ipv6',
+        input => 'cryptopANT_anon_ipv6.pcap',
+        output => 'cryptopANT_danon_ipv6.out',
+        args   => '--danon tests/newkeyfile-aes.cryptopant -# -n -v '
+    },
+    
+    {
+        config_set => 'HAVE_LIBCRYPTOPANT',
+        name => 'cryptopANT_danon_arp',
+        input => 'cryptopANT_anon_arp.pcap',
+        output => 'cryptopANT_danon_arp.out',
+        args   => '--danon tests/newkeyfile-aes.cryptopant -# -n -v '
+    },
+    
+    {
+        config_set => 'HAVE_LIBCRYPTOPANT',
+        name => 'cryptopANT_danon_vlan',
+        input => 'cryptopANT_anon_vlan.pcap',
+        output => 'cryptopANT_danon_vlan.out',
+        args   => '--danon tests/newkeyfile-aes.cryptopant -# -n -v '
+    },
+    
+    {
+        config_set => 'HAVE_LIBCRYPTOPANT',
+        name => 'cryptopANT_danon_dns',
+        input => 'cryptopANT_anon_dns.pcap',
+        output => 'cryptopANT_danon_dns.out',
+        args   => '--danon tests/newkeyfile-aes.cryptopant -# -n -v '
+    },
+    
+    {
+        config_set => 'HAVE_LIBCRYPTOPANT',
+        name => 'cryptopANT_danon_dhcp',
+        input => 'cryptopANT_anon_dhcp.pcap',
+        output => 'cryptopANT_danon_dhcp.out',
+        args   => '--danon tests/newkeyfile-aes.cryptopant -# -n -v '
+    },
+    
+    {
+        config_set => 'HAVE_LIBCRYPTOPANT',
+        name => 'cryptopANT_danon_ndp',
+        input => 'cryptopANT_anon_ndp.pcap',
+        output => 'cryptopANT_danon_ndp.out',
+        args   => '--danon tests/newkeyfile-aes.cryptopant -# -n -v '
+    },
+    
+    {
+        config_set => 'HAVE_LIBCRYPTOPANT',
+        name => 'cryptopANT_danon_mld',
+        input => 'cryptopANT_anon_mld.pcap',
+        output => 'cryptopANT_danon_mld.out',
+        args   => '--danon tests/newkeyfile-aes.cryptopant -# -n -v '
+    },
+    
+    {
+        config_set => 'HAVE_LIBCRYPTOPANT',
+        name => 'cryptopANT_danon_gre',
+        input => 'cryptopANT_anon_gre.pcap',
+        output => 'cryptopANT_danon_gre.out',
+        args   => '--danon tests/newkeyfile-aes.cryptopant -# -n -v '
+    },
+    
+    {
+        config_set => 'HAVE_LIBCRYPTOPANT',
+        name => 'cryptopANT_danon_nhrp',
+        input => 'cryptopANT_anon_nhrp.pcap',
+        output => 'cryptopANT_danon_nhrp.out',
+        args   => '--danon tests/newkeyfile-aes.cryptopant -# -n -v '
+    },
+    
+    {
+        config_set => 'HAVE_LIBCRYPTOPANT',
+        name => 'cryptopANT_danon_ipinip',
+        input => 'cryptopANT_anon_ipinip.pcap',
+        output => 'cryptopANT_danon_ipinip.out',
+        args   => '--danon tests/newkeyfile-aes.cryptopant -# -n -v '
+    },
+    
+    {
+        config_set => 'HAVE_LIBCRYPTOPANT',
+        name => 'cryptopANT_ipv4_pass4_8',
+        input => 'cryptopANT_ipv4.pcap',
+        output => 'cryptopANT_ipv4_pass4_8.out',
+        args   => '--anon tests/newkeyfile-aes.cryptopant -# -n -v --pass4 8'
+    },
+    
+        {
+        config_set => 'HAVE_LIBCRYPTOPANT',
+        name => 'cryptopANT_ipv6_pass6_16',
+        input => 'cryptopANT_ipv6.pcap',
+        output => 'cryptopANT_ipv6_pass6_16.out',
+        args   => '--anon tests/newkeyfile-aes.cryptopant -# -n -v --pass6 16'
+    },
+    
+            {
+        config_set => 'HAVE_LIBCRYPTOPANT',
+        name => 'cryptopANT_ipv4_pass4_32',
+        input => 'cryptopANT_ipv4.pcap',
+        output => 'cryptopANT_ipv4_pass4_32.out',
+        args   => '--anon tests/newkeyfile-aes.cryptopant -# -n -v --pass4 32'
+    },
+            {
+        config_set => 'HAVE_LIBCRYPTOPANT',
+        name => 'cryptopANT_ipv6_pass6_32',
+        input => 'cryptopANT_ipv6.pcap',
+        output => 'cryptopANT_ipv6_pass6_32.out',
+        args   => '--anon tests/newkeyfile-aes.cryptopant -# -n -v --pass6 32'
+    },
+    
+    {
+        config_set => 'HAVE_LIBCRYPTOPANT',
+        name => 'cryptopANT_cipher_aes',
+        input => 'cryptopANT_ipinip.pcap',
+        output => 'cryptopANT_aes.out',
+        args   => '--anon tests/keyaes -# -n -v --c4 aes --c6 aes'
+    },
+
+    {
+        config_set => 'HAVE_LIBCRYPTOPANT',
+        name => 'cryptopANT_cipher_blowfish',
+        input => 'cryptopANT_ipinip.pcap',
+        output => 'cryptopANT_blowfish.out',
+        args   => '--anon tests/keyblowfish -# -n -v --c4 blowfish --c6 blowfish'
+    },
+
+    {
+        config_set => 'HAVE_LIBCRYPTOPANT',
+        name => 'cryptopANT_cipher_sha1',
+        input => 'cryptopANT_ipinip.pcap',
+        output => 'cryptopANT_sha1.out',
+        args   => '--anon tests/keysha1 -# -n -v --c4 sha1 --c6 sha1'
+    },
+
+    {
+        config_set => 'HAVE_LIBCRYPTOPANT',
+        name => 'cryptopANT_cipher_md5',
+        input => 'cryptopANT_ipinip.pcap',
+        output => 'cryptopANT_md5.out',
+        args   => '--anon tests/keymd5 -# -n -v --c4 md5 --c6 md5'
     }
 
 ];

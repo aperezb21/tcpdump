@@ -1,0 +1,8 @@
+    1  2008-08-25 07:34:03.536057 IP6 (class 0xe0, hlim 255, next-header ICMPv6 (58) payload length: 24) b391:56e1:a8c5:97ec:a187:c5d6:a623:dc09 > 644d:8ed6:66a0:faa9:fda5:acb9:80c1:120a: [bad icmp6 cksum 0x673c -> 0x4667!] ICMP6, neighbor solicitation, length 24, who has 65c5:5eb8:1687:ec6c:c023:ed87:c6f9:2fe4
+    2  2008-08-25 07:34:04.480017 IP6 (class 0xe0, hlim 255, next-header ICMPv6 (58) payload length: 32) 65c5:5eb8:1687:ec6c:c023:ed87:c6f9:2fe4 > 644d:8ed6:66a0:faa9:fda5:acb8:3f4c:7684: [bad icmp6 cksum 0x9abb -> 0x3219!] ICMP6, neighbor advertisement, length 32, tgt is 65c5:5eb8:1687:ec6c:c023:ed87:c6f9:2fe4, Flags [router, override]
+	  destination link-address option (2), length 8 (1): c2:00:54:f5:00:00
+    3  2008-08-25 07:34:04.484037 IP6 (class 0xe0, hlim 255, next-header ICMPv6 (58) payload length: 64) 65c5:5eb8:1687:ec6c:c023:ed87:c6f9:2fe4 > 644d:8ed6:66a0:faa9:fda5:acb8:3f4c:7684: [bad icmp6 cksum 0xc4fe -> 0x32c1!] ICMP6, router advertisement, length 64
+	hop limit 64, Flags [none], pref medium, router lifetime 1800s, reachable time 0ms, retrans timer 0ms
+	  source link-address option (1), length 8 (1): c2:00:54:f5:00:00
+	  mtu option (5), length 8 (1):  1500
+	  prefix info option (3), length 32 (4): 8f1b:a41b:e9ff:18a5:7ecc:245f:40e6:96eb/64, Flags [onlink, auto], valid time 2592000s, pref. time 604800s

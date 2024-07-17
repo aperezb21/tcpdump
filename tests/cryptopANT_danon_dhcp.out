@@ -1,0 +1,46 @@
+    1  2004-12-05 19:16:24.317453 IP (tos 0x0, ttl 250, id 43062, offset 0, flags [none], proto UDP (17), length 300)
+    0.0.0.0.68 > 255.255.255.255.67: BOOTP/DHCP, Request from 00:0b:82:01:fc:42, length 272, xid 0x3d1d, Flags [none]
+	  Client-Ethernet-Address 00:0b:82:01:fc:42
+	  Vendor-rfc1048 Extensions
+	    Magic Cookie 0x63825363
+	    DHCP-Message (53), length 1: Discover
+	    Client-ID (61), length 7: ether 00:0b:82:01:fc:42
+	    Requested-IP (50), length 4: 0.0.0.0
+	    Parameter-Request (55), length 4: 
+	      Subnet-Mask (1), Default-Gateway (3), Domain-Name-Server (6), NTP (42)
+    2  2004-12-05 19:16:24.317748 IP (tos 0x0, ttl 128, id 1093, offset 0, flags [none], proto UDP (17), length 328, bad cksum 0 (->b404)!)
+    192.168.0.1.67 > 192.168.0.10.68: BOOTP/DHCP, Reply, length 300, xid 0x3d1d, Flags [none]
+	  Your-IP 192.168.0.10
+	  Server-IP 192.168.0.1
+	  Client-Ethernet-Address 00:0b:82:01:fc:42
+	  Vendor-rfc1048 Extensions
+	    Magic Cookie 0x63825363
+	    DHCP-Message (53), length 1: Offer
+	    Subnet-Mask (1), length 4: 255.255.255.0
+	    RN (58), length 4: 1800
+	    RB (59), length 4: 3150
+	    Lease-Time (51), length 4: 3600
+	    Server-ID (54), length 4: 192.168.0.1
+    3  2004-12-05 19:16:24.387484 IP (tos 0x0, ttl 250, id 43063, offset 0, flags [none], proto UDP (17), length 300)
+    0.0.0.0.68 > 255.255.255.255.67: BOOTP/DHCP, Request from 00:0b:82:01:fc:42, length 272, xid 0x3d1e, Flags [none]
+	  Client-Ethernet-Address 00:0b:82:01:fc:42
+	  Vendor-rfc1048 Extensions
+	    Magic Cookie 0x63825363
+	    DHCP-Message (53), length 1: Request
+	    Client-ID (61), length 7: ether 00:0b:82:01:fc:42
+	    Requested-IP (50), length 4: 192.168.0.10
+	    Server-ID (54), length 4: 192.168.0.1
+	    Parameter-Request (55), length 4: 
+	      Subnet-Mask (1), Default-Gateway (3), Domain-Name-Server (6), NTP (42)
+    4  2004-12-05 19:16:24.387798 IP (tos 0x0, ttl 128, id 1094, offset 0, flags [none], proto UDP (17), length 328, bad cksum 0 (->b403)!)
+    192.168.0.1.67 > 192.168.0.10.68: BOOTP/DHCP, Reply, length 300, xid 0x3d1e, Flags [none]
+	  Your-IP 192.168.0.10
+	  Client-Ethernet-Address 00:0b:82:01:fc:42
+	  Vendor-rfc1048 Extensions
+	    Magic Cookie 0x63825363
+	    DHCP-Message (53), length 1: ACK
+	    RN (58), length 4: 1800
+	    RB (59), length 4: 3150
+	    Lease-Time (51), length 4: 3600
+	    Server-ID (54), length 4: 192.168.0.1
+	    Subnet-Mask (1), length 4: 255.255.255.0

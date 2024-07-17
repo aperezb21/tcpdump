@@ -1,4 +1,4 @@
-    2  22:58:42.342318 IP (tos 0x0, ttl 64, id 1, offset 0, flags [none], proto UDP (17), length 28, bad cksum f974 (->3ee7)!)
+    1  2024-04-21 22:58:42.342318 IP (tos 0x0, ttl 64, id 1, offset 0, flags [none], proto UDP (17), length 28, bad cksum f974 (->3ee7)!)
     196.157.89.90.53 > 196.157.89.84.53: domain [length 0 < 12] (invalid)
-    4  22:58:42.342641 IP (tos 0x0, ttl 64, id 1, offset 0, flags [none], proto UDP (17), length 28, bad cksum b527 (->6837)!)
-    124.78.115.208.53 > 196.157.93.221.53: domain [length 0 < 12] (invalid)
+    2  2024-04-21 22:58:42.342641 IP (tos 0x0, ttl 64, id 1, offset 0, flags [none], proto UDP (17), length 28, bad cksum b527 (->5856)!)
+    0.0.0.0.53 > 196.157.93.221.53: domain [length 0 < 12] (invalid)

@@ -1,0 +1,20 @@
+    1  2008-07-22 06:47:16.060879 IP (tos 0x0, ttl 255, id 28, offset 0, flags [none], proto GRE (47), length 124)
+    172.16.25.2 > 172.16.15.2: GREv0, Flags [none], length 104
+	IP (tos 0x0, ttl 255, id 30, offset 0, flags [none], proto ICMP (1), length 100)
+    192.168.0.2 > 192.168.0.4: ICMP echo request, id 6, seq 0, length 80
+    2  2008-07-22 06:47:16.126680 IP (tos 0x0, ttl 254, id 19, offset 0, flags [none], proto GRE (47), length 124)
+    172.16.15.2 > 172.16.25.2: GREv0, Flags [none], length 104
+	IP (tos 0x0, ttl 254, id 30, offset 0, flags [none], proto ICMP (1), length 100)
+    192.168.0.4 > 192.168.0.2: ICMP echo reply, id 6, seq 0, length 80
+    3  2008-07-22 06:47:16.133008 IP (tos 0x0, ttl 255, id 30, offset 0, flags [none], proto GRE (47), length 124)
+    172.16.25.2 > 172.16.15.2: GREv0, Flags [none], length 104
+	IP (tos 0x0, ttl 255, id 31, offset 0, flags [none], proto ICMP (1), length 100)
+    192.168.0.2 > 192.168.0.4: ICMP echo request, id 6, seq 1, length 80
+    4  2008-07-22 06:47:16.270695 IP (tos 0x0, ttl 254, id 24, offset 0, flags [none], proto GRE (47), length 124)
+    172.16.15.2 > 172.16.25.2: GREv0, Flags [none], length 104
+	IP (tos 0x0, ttl 254, id 31, offset 0, flags [none], proto ICMP (1), length 100)
+    192.168.0.4 > 192.168.0.2: ICMP echo reply, id 6, seq 1, length 80
+    5  2008-07-22 06:47:16.280912 IP (tos 0x0, ttl 255, id 32, offset 0, flags [none], proto GRE (47), length 124)
+    172.16.25.2 > 172.16.45.2: GREv0, Flags [none], length 104
+	IP (tos 0x0, ttl 255, id 32, offset 0, flags [none], proto ICMP (1), length 100)
+    192.168.0.2 > 192.168.0.4: ICMP echo request, id 6, seq 2, length 80

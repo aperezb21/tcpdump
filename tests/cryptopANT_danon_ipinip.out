@@ -1,0 +1,20 @@
+    1  2008-06-24 11:59:07.487397 IP (tos 0x0, ttl 255, id 9, offset 0, flags [none], proto IPv6 (41), length 120)
+    10.0.0.1 > 10.0.0.2: IP6 (hlim 64, next-header ICMPv6 (58) payload length: 60) 2001:db8:0:1::1 > 2001:db8:0:1::2: [icmp6 sum ok] ICMP6, echo request, id 6364, seq 0
+    2  2008-06-24 11:59:07.495432 IP (tos 0x0, ttl 255, id 9, offset 0, flags [none], proto IPv6 (41), length 120)
+    10.0.0.2 > 10.0.0.1: IP6 (hlim 64, next-header ICMPv6 (58) payload length: 60) 2001:db8:0:1::2 > 2001:db8:0:1::1: [icmp6 sum ok] ICMP6, echo reply, id 6364, seq 0
+    3  2008-06-24 11:59:07.503398 IP (tos 0x0, ttl 255, id 10, offset 0, flags [none], proto IPv6 (41), length 120)
+    10.0.0.1 > 10.0.0.2: IP6 (hlim 64, next-header ICMPv6 (58) payload length: 60) 2001:db8:0:1::1 > 2001:db8:0:1::2: [icmp6 sum ok] ICMP6, echo request, id 6364, seq 1
+    4  2008-06-24 11:59:07.511413 IP (tos 0x0, ttl 255, id 10, offset 0, flags [none], proto IPv6 (41), length 120)
+    10.0.0.2 > 10.0.0.1: IP6 (hlim 64, next-header ICMPv6 (58) payload length: 60) 2001:db8:0:1::2 > 2001:db8:0:1::1: [icmp6 sum ok] ICMP6, echo reply, id 6364, seq 1
+    5  2008-06-24 11:59:07.519400 IP (tos 0x0, ttl 255, id 11, offset 0, flags [none], proto IPv6 (41), length 120)
+    10.0.0.1 > 10.0.0.2: IP6 (hlim 64, next-header ICMPv6 (58) payload length: 60) 2001:db8:0:1::1 > 2001:db8:0:1::2: [icmp6 sum ok] ICMP6, echo request, id 6364, seq 2
+    6  2008-06-24 11:59:07.527416 IP (tos 0x0, ttl 255, id 11, offset 0, flags [none], proto IPv6 (41), length 120)
+    10.0.0.2 > 10.0.0.1: IP6 (hlim 64, next-header ICMPv6 (58) payload length: 60) 2001:db8:0:1::2 > 2001:db8:0:1::1: [icmp6 sum ok] ICMP6, echo reply, id 6364, seq 2
+    7  2008-06-24 11:59:07.535400 IP (tos 0x0, ttl 255, id 12, offset 0, flags [none], proto IPv6 (41), length 120)
+    10.0.0.1 > 10.0.0.2: IP6 (hlim 64, next-header ICMPv6 (58) payload length: 60) 2001:db8:0:1::1 > 2001:db8:0:1::2: [icmp6 sum ok] ICMP6, echo request, id 6364, seq 3
+    8  2008-06-24 11:59:07.543413 IP (tos 0x0, ttl 255, id 12, offset 0, flags [none], proto IPv6 (41), length 120)
+    10.0.0.2 > 10.0.0.1: IP6 (hlim 64, next-header ICMPv6 (58) payload length: 60) 2001:db8:0:1::2 > 2001:db8:0:1::1: [icmp6 sum ok] ICMP6, echo reply, id 6364, seq 3
+    9  2008-06-24 11:59:07.551404 IP (tos 0x0, ttl 255, id 13, offset 0, flags [none], proto IPv6 (41), length 120)
+    10.0.0.1 > 10.0.0.2: IP6 (hlim 64, next-header ICMPv6 (58) payload length: 60) 2001:db8:0:1::1 > 2001:db8:0:1::2: [icmp6 sum ok] ICMP6, echo request, id 6364, seq 4
+   10  2008-06-24 11:59:07.559411 IP (tos 0x0, ttl 255, id 13, offset 0, flags [none], proto IPv6 (41), length 120)
+    10.0.0.2 > 10.0.0.1: IP6 (hlim 64, next-header ICMPv6 (58) payload length: 60) 2001:db8:0:1::2 > 2001:db8:0:1::1: [icmp6 sum ok] ICMP6, echo reply, id 6364, seq 4

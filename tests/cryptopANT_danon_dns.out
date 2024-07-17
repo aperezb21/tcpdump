@@ -1,0 +1,4 @@
+    1  2005-03-30 08:47:51.333401 IP (tos 0x0, ttl 128, id 52411, offset 0, flags [none], proto UDP (17), length 284)
+    192.168.170.20.53 > 192.168.170.8.32795: 63343 6/0/6 google.com. MX smtp4.google.com. 40, google.com. MX smtp5.google.com. 10, google.com. MX smtp6.google.com. 10, google.com. MX smtp1.google.com. 10, google.com. MX smtp2.google.com. 10, google.com. MX smtp3.google.com. 40 (256)
+    2  2005-03-30 08:52:17.733384 IP (tos 0x0, ttl 128, id 55540, offset 0, flags [none], proto UDP (17), length 101)
+    192.168.170.20.53 > 192.168.170.8.32795: 65251 2/0/0 www.isc.org. AAAA 2001:4f8:0:2::d, www.isc.org. A 204.152.184.88 (73)

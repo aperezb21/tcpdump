@@ -1,0 +1,4 @@
+    1  2017-02-08 18:45:35.168064 IP (tos 0x0, ttl 64, id 37232, offset 0, flags [DF], proto ICMP (1), length 84)
+    10.205.211.6 > 10.205.211.5: ICMP echo request, id 21644, seq 7, length 64
+    2  2017-02-08 18:45:35.168082 IP (tos 0x0, ttl 64, id 63840, offset 0, flags [none], proto ICMP (1), length 84)
+    10.205.211.5 > 10.205.211.6: ICMP echo reply, id 21644, seq 7, length 64

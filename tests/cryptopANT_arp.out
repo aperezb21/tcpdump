@@ -1,0 +1,5 @@
+    1  2004-10-05 14:01:05.275344 ARP, Ethernet (len 6), IPv4 (len 4), Request who-has 101.79.61.70 tell 101.79.60.174, length 46
+    2  2004-10-05 14:01:05.373938 ARP, Ethernet (len 6), IPv4 (len 4), Request who-has 101.79.60.46 tell 101.79.60.174, length 46
+    3  2004-10-05 14:01:05.385961 ARP, Ethernet (len 6), IPv4 (len 4), Request who-has 101.79.61.119 tell 101.79.60.174, length 46
+    4  2004-10-05 14:01:05.487135 ARP, Ethernet (len 6), IPv4 (len 4), Request who-has 62.76.218.98 tell 62.76.218.11, length 46
+    5  2004-10-05 14:01:05.492088 ARP, Ethernet (len 6), IPv4 (len 4), Request who-has 101.79.61.117 tell 101.79.60.174, length 46

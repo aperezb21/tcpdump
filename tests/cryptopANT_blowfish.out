@@ -1,0 +1,20 @@
+    1  2008-06-24 11:59:07.487397 IP (tos 0x0, ttl 255, id 9, offset 0, flags [none], proto IPv6 (41), length 120, bad cksum a751 (->463b)!)
+    29.151.156.244 > 29.151.156.246: IP6 (hlim 64, next-header ICMPv6 (58) payload length: 60) 8c18:e871:cfb6:7d5a:8b6a:3e50:850b:a9fe > 8c18:e871:cfb6:7d5a:8b6a:3e50:850b:a9fd: [bad icmp6 cksum 0x7e8f -> 0x6546!] ICMP6, echo request, id 6364, seq 0
+    2  2008-06-24 11:59:07.495432 IP (tos 0x0, ttl 255, id 9, offset 0, flags [none], proto IPv6 (41), length 120, bad cksum a751 (->463b)!)
+    29.151.156.246 > 29.151.156.244: IP6 (hlim 64, next-header ICMPv6 (58) payload length: 60) 8c18:e871:cfb6:7d5a:8b6a:3e50:850b:a9fd > 8c18:e871:cfb6:7d5a:8b6a:3e50:850b:a9fe: [bad icmp6 cksum 0x7d8f -> 0x6446!] ICMP6, echo reply, id 6364, seq 0
+    3  2008-06-24 11:59:07.503398 IP (tos 0x0, ttl 255, id 10, offset 0, flags [none], proto IPv6 (41), length 120, bad cksum a750 (->463a)!)
+    29.151.156.244 > 29.151.156.246: IP6 (hlim 64, next-header ICMPv6 (58) payload length: 60) 8c18:e871:cfb6:7d5a:8b6a:3e50:850b:a9fe > 8c18:e871:cfb6:7d5a:8b6a:3e50:850b:a9fd: [bad icmp6 cksum 0x6474 -> 0x4b2b!] ICMP6, echo request, id 6364, seq 1
+    4  2008-06-24 11:59:07.511413 IP (tos 0x0, ttl 255, id 10, offset 0, flags [none], proto IPv6 (41), length 120, bad cksum a750 (->463a)!)
+    29.151.156.246 > 29.151.156.244: IP6 (hlim 64, next-header ICMPv6 (58) payload length: 60) 8c18:e871:cfb6:7d5a:8b6a:3e50:850b:a9fd > 8c18:e871:cfb6:7d5a:8b6a:3e50:850b:a9fe: [bad icmp6 cksum 0x6374 -> 0x4a2b!] ICMP6, echo reply, id 6364, seq 1
+    5  2008-06-24 11:59:07.519400 IP (tos 0x0, ttl 255, id 11, offset 0, flags [none], proto IPv6 (41), length 120, bad cksum a74f (->4639)!)
+    29.151.156.244 > 29.151.156.246: IP6 (hlim 64, next-header ICMPv6 (58) payload length: 60) 8c18:e871:cfb6:7d5a:8b6a:3e50:850b:a9fe > 8c18:e871:cfb6:7d5a:8b6a:3e50:850b:a9fd: [bad icmp6 cksum 0x4a59 -> 0x3110!] ICMP6, echo request, id 6364, seq 2
+    6  2008-06-24 11:59:07.527416 IP (tos 0x0, ttl 255, id 11, offset 0, flags [none], proto IPv6 (41), length 120, bad cksum a74f (->4639)!)
+    29.151.156.246 > 29.151.156.244: IP6 (hlim 64, next-header ICMPv6 (58) payload length: 60) 8c18:e871:cfb6:7d5a:8b6a:3e50:850b:a9fd > 8c18:e871:cfb6:7d5a:8b6a:3e50:850b:a9fe: [bad icmp6 cksum 0x4959 -> 0x3010!] ICMP6, echo reply, id 6364, seq 2
+    7  2008-06-24 11:59:07.535400 IP (tos 0x0, ttl 255, id 12, offset 0, flags [none], proto IPv6 (41), length 120, bad cksum a74e (->4638)!)
+    29.151.156.244 > 29.151.156.246: IP6 (hlim 64, next-header ICMPv6 (58) payload length: 60) 8c18:e871:cfb6:7d5a:8b6a:3e50:850b:a9fe > 8c18:e871:cfb6:7d5a:8b6a:3e50:850b:a9fd: [bad icmp6 cksum 0x303e -> 0x16f5!] ICMP6, echo request, id 6364, seq 3
+    8  2008-06-24 11:59:07.543413 IP (tos 0x0, ttl 255, id 12, offset 0, flags [none], proto IPv6 (41), length 120, bad cksum a74e (->4638)!)
+    29.151.156.246 > 29.151.156.244: IP6 (hlim 64, next-header ICMPv6 (58) payload length: 60) 8c18:e871:cfb6:7d5a:8b6a:3e50:850b:a9fd > 8c18:e871:cfb6:7d5a:8b6a:3e50:850b:a9fe: [bad icmp6 cksum 0x2f3e -> 0x15f5!] ICMP6, echo reply, id 6364, seq 3
+    9  2008-06-24 11:59:07.551404 IP (tos 0x0, ttl 255, id 13, offset 0, flags [none], proto IPv6 (41), length 120, bad cksum a74d (->4637)!)
+    29.151.156.244 > 29.151.156.246: IP6 (hlim 64, next-header ICMPv6 (58) payload length: 60) 8c18:e871:cfb6:7d5a:8b6a:3e50:850b:a9fe > 8c18:e871:cfb6:7d5a:8b6a:3e50:850b:a9fd: [bad icmp6 cksum 0x1623 -> 0xfcd9!] ICMP6, echo request, id 6364, seq 4
+   10  2008-06-24 11:59:07.559411 IP (tos 0x0, ttl 255, id 13, offset 0, flags [none], proto IPv6 (41), length 120, bad cksum a74d (->4637)!)
+    29.151.156.246 > 29.151.156.244: IP6 (hlim 64, next-header ICMPv6 (58) payload length: 60) 8c18:e871:cfb6:7d5a:8b6a:3e50:850b:a9fd > 8c18:e871:cfb6:7d5a:8b6a:3e50:850b:a9fe: [bad icmp6 cksum 0x1523 -> 0xfbd9!] ICMP6, echo reply, id 6364, seq 4

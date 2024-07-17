@@ -1,0 +1,8 @@
+    1  2008-08-25 07:34:03.536057 IP6 (class 0xe0, hlim 255, next-header ICMPv6 (58) payload length: 24) :: > ff02::1:fff5:0: [icmp6 sum ok] ICMP6, neighbor solicitation, length 24, who has fe80::c000:54ff:fef5:0
+    2  2008-08-25 07:34:04.480017 IP6 (class 0xe0, hlim 255, next-header ICMPv6 (58) payload length: 32) fe80::c000:54ff:fef5:0 > ff02::1: [icmp6 sum ok] ICMP6, neighbor advertisement, length 32, tgt is fe80::c000:54ff:fef5:0, Flags [router, override]
+	  destination link-address option (2), length 8 (1): c2:00:54:f5:00:00
+    3  2008-08-25 07:34:04.484037 IP6 (class 0xe0, hlim 255, next-header ICMPv6 (58) payload length: 64) fe80::c000:54ff:fef5:0 > ff02::1: [icmp6 sum ok] ICMP6, router advertisement, length 64
+	hop limit 64, Flags [none], pref medium, router lifetime 1800s, reachable time 0ms, retrans timer 0ms
+	  source link-address option (1), length 8 (1): c2:00:54:f5:00:00
+	  mtu option (5), length 8 (1):  1500
+	  prefix info option (3), length 32 (4): 2001:db8:0:1::/64, Flags [onlink, auto], valid time 2592000s, pref. time 604800s
