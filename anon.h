@@ -9,8 +9,6 @@
 #include "gre.h"
 #include "ipproto.h"
 
-
-
 #define ar_spa_anon(ap)	(((u_char *)((ap)+1))+  GET_U_1((ap)->ar_hln))
 #define ar_tpa_anon(ap)	(((u_char *)((ap)+1))+2*GET_U_1((ap)->ar_hln)+GET_U_1((ap)->ar_pln))
 #define SPA_ANON(ap) (ar_spa_anon(ap))

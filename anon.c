@@ -10,7 +10,7 @@
 int pass_bits4_const = 0;
 int pass_bits6_const = 0;
 
-void anon_ip4(nd_ipv4 *ip)
+void anon_ip4(unsigned char *ip)
 {
 
     uint32_t ip4_net_ord = EXTRACT_IPV4_TO_NETWORK_ORDER(ip);
@@ -21,7 +21,7 @@ void anon_ip4(nd_ipv4 *ip)
     }
 }
 
-void anon_ip6(nd_ipv6 *ip)
+void anon_ip6(unsigned char *ip)
 {
 
     struct in6_addr ip6_net_ord = EXTRACT_IPV6_TO_NETWORK_ORDER(ip);
@@ -47,7 +47,7 @@ struct ip6_hbh *hbh;
                 case IPPROTO_HOPOPTS:
                 case IPPROTO_DSTOPTS:
                 case IPPROTO_ROUTING:
-                    hbh = (const struct ip6_hbh *)*sp;
+                    hbh = (struct ip6_hbh *)*sp;
                     nh = GET_U_1(hbh->ip6h_nxt);
                     ip6_ext_len = (GET_U_1(hbh->ip6h_len) + 1) << 3;
                     *sp += ip6_ext_len;
@@ -55,7 +55,7 @@ struct ip6_hbh *hbh;
 
                 case IPPROTO_FRAGMENT:
 
-                    fragh = (const struct ip6_frag *)*sp;
+                    fragh = (struct ip6_frag *)*sp;
                     nh = GET_U_1(fragh->ip6f_nxt);
                     ip6_ext_len = sizeof(struct ip6_frag);
                     *sp += sizeof(struct ip6_frag);
@@ -90,9 +90,7 @@ void anon_packet(netdissect_options *ndo, const struct pcap_pkthdr *h, u_char *s
     u_short typ, length;
     u_int len;
     u_int ulen;
-    uint8_t bp_op, bp_htype, bp_hlen;
     uint16_t tag;
-    uint8_t ip6_ext_len;
     uint32_t payload_len;
     struct nd_neighbor_solicit *p;
     struct nd_neighbor_advert *p2;
@@ -101,12 +99,12 @@ void anon_packet(netdissect_options *ndo, const struct pcap_pkthdr *h, u_char *s
     uint8_t opt_type;
     u_int opt_len;
     struct nd_opt_prefix_info *opp;
-    uint8_t icmp6_type, icmp6_code;
+    uint8_t icmp6_type;
     struct icmp6_hdr *dp;
     struct ip6_hbh *hbh;
     struct ip6_frag *fragh;
     u_int group, nsrcs, ngroups;
-    const struct mld6_hdr *mp;
+    struct mld6_hdr *mp;
     size_t l;
     u_int vers;
     uint16_t prot;
@@ -719,6 +717,7 @@ void anon_packet(netdissect_options *ndo, const struct pcap_pkthdr *h, u_char *s
                 icmp6_type = GET_U_1(dp->icmp6_type);
                 // Is_ndp is used to process ndp options after the switch
                 int is_ndp = 0;
+                int ndplen = 0;
                 switch (icmp6_type)
                 {
 
@@ -730,8 +729,7 @@ void anon_packet(netdissect_options *ndo, const struct pcap_pkthdr *h, u_char *s
 
                     // Check for options
                     sp += sizeof(struct nd_neighbor_solicit);
-#define NDPLEN 24
-
+                    ndplen = 24;
                     break;
                 case ND_NEIGHBOR_ADVERT:
                     is_ndp = 1;
@@ -741,7 +739,7 @@ void anon_packet(netdissect_options *ndo, const struct pcap_pkthdr *h, u_char *s
 
                     // Check for options
                     sp += sizeof(struct nd_neighbor_advert);
-#define NDPLEN 24
+                    ndplen = 24;
                     break;
 
                 case ND_ROUTER_SOLICIT:
@@ -754,12 +752,12 @@ void anon_packet(netdissect_options *ndo, const struct pcap_pkthdr *h, u_char *s
                     is_ndp = 1;
                     // Check for options
                     sp += sizeof(struct nd_router_advert);
-#define NDPLEN 16
+                    ndplen = 16;
                     break;
                 case ND_REDIRECT:
                     is_ndp = 1;
                     // Check for options
-#define NDPLEN 40
+                    ndplen = 40;
                     sp += sizeof(struct nd_redirect);
                     break;
 
@@ -790,7 +788,7 @@ void anon_packet(netdissect_options *ndo, const struct pcap_pkthdr *h, u_char *s
                 // In NDP could be extensions
                 if (is_ndp)
                 {
-                    while (payload_len > NDPLEN)
+                    while (payload_len > ndplen)
                     {
                         // There are options
                         op = (struct nd_opt_hdr *)sp;
